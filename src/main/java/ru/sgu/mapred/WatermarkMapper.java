@@ -18,6 +18,7 @@ public class WatermarkMapper extends Mapper<Text, Text, Text, LongWritable> {
 
     @Override
     protected void map(Text key, Text value, Context context) throws IOException, InterruptedException {
+        FFMPEGUtil.init();
         Path partPath = new Path(value.toString());
 
         String partName = partPath.getName();

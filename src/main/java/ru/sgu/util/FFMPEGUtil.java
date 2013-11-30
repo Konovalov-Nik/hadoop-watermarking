@@ -16,7 +16,7 @@ import java.util.UUID;
 public class FFMPEGUtil {
     public static final String SPLIT_DURATION = "00:01:00";
 
-    static {
+    public static void init() {
         File executable = new File("/tmp/ffmpeg");
         if (!executable.exists()) {
             InputStream stream = FFMPEGUtil.class.getResourceAsStream("/ffmpeg");

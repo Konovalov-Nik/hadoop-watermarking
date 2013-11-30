@@ -26,6 +26,7 @@ public class WatermarkReducer extends Reducer<Text, LongWritable, Text, LongWrit
             values.iterator().next();
         }
 
+        FFMPEGUtil.init();
         Configuration configuration = context.getConfiguration();
         String jobUUID = configuration.get("jobUUID");
         MappedSplitDownloader downloader = new MappedSplitDownloader(jobUUID, configuration);

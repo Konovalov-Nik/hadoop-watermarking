@@ -14,6 +14,7 @@ import ru.sgu.input.VideoFileInputFormat;
 import ru.sgu.mapred.WatermarkMapper;
 import ru.sgu.mapred.WatermarkReducer;
 import ru.sgu.output.VideoFileOutputFormat;
+import ru.sgu.util.FFMPEGUtil;
 
 import java.util.UUID;
 
@@ -43,6 +44,7 @@ public class Watermarking extends Configured implements Tool{
         fileSystem.copyFromLocalFile(false, new Path(imageInputPath), new Path("/watermarking/" + jobUUID + "/watermark"));
 
 
+        FFMPEGUtil.init();
         SplitUploader uploader = new SplitUploader(videoInputPath, jobUUID, conf);
         uploader.splitAndUpload();
 
